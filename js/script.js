@@ -82,3 +82,33 @@ jQuery(".js-modal-close").on("click", function (e) {
     document.body.classList.remove("is-modal-open");
   }, 400); // ← transition時間と合わせる
 });
+
+// spotsセクションのループスライド
+// スライドの横幅をwidthで調整 + ループ
+const swiperLoop = new Swiper(".js-swiper-width-loop", {
+  width: 240, // スライドの横幅
+  height: 402.16,
+  spaceBetween: 16,
+  loop: true, // ループモードを有効にする
+
+  // ブレイクポイント
+  breakpoints: {
+    768: {
+      width: 344,
+
+      spaceBetween: 32,
+    },
+  },
+
+  // 仮想スライド
+  virtual: {
+    enabled: true, // 仮想スライドを有効にする
+    addSlidesAfter: 7, // 追加するスライド数
+  },
+
+  // ナビゲーション
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});

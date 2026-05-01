@@ -2806,3 +2806,50 @@ body {
     font-size: 20px;
   }
 }
+
+// ループスライド(自動slideはしない)
+.spots-contents__slide {
+}
+
+.js-swiper-width-loop {
+}
+
+.swiper {
+}
+
+.swiper-wrapper {
+}
+
+.swiper-slide {
+}
+
+.card {
+  background: $monochrome-white;
+  border-radius: 24px;
+  overflow: hidden;
+
+  font-family: $font-family-ns-jp;
+  column-rule-color: $color-font-blown;
+  line-height: 1.6;
+}
+
+.card__image {
+  display: block;
+  width: 100%;
+}
+
+.card__title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.card__text {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.swiper-button-prev {
+}
+
+.swiper-button-next {
+}

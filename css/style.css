@@ -3169,3 +3169,29 @@ body.is-modal-open {
     font-size: 20px;
   }
 }
+
+.card {
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  font-family: "Noto Sans JP", sans-serif;
+  -webkit-column-rule-color: #4a3636;
+     -moz-column-rule-color: #4a3636;
+          column-rule-color: #4a3636;
+  line-height: 1.6;
+}
+
+.card__image {
+  display: block;
+  width: 100%;
+}
+
+.card__title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.card__text {
+  font-size: 16px;
+  font-weight: 400;
+}
