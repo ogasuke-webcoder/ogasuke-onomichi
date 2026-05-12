@@ -7,6 +7,13 @@ document
     document.querySelector("#js-drawer-button").classList.toggle("is-checked");
     document.querySelector("#js-drawer-content").classList.toggle("is-checked");
   });
+// ドロワー内のリンククリックで閉じる
+document.querySelectorAll("#js-drawer-content a").forEach(function (link) {
+  link.addEventListener("click", function () {
+    document.querySelector("#js-drawer-button").classList.remove("is-checked");
+    document.querySelector("#js-drawer-content").classList.remove("is-checked");
+  });
+});
 
 // swiper
 const swiperLoopSmooth = new Swiper(".js-swiper-loop-smooth", {
@@ -29,12 +36,6 @@ const swiperLoopSmooth = new Swiper(".js-swiper-loop-smooth", {
       spaceBetween: 20,
     },
   },
-
-  // // Navigation arrows
-  // navigation: {
-  //   nextEl: ".swiper-button-next",
-  //   prevEl: ".swiper-button-prev",
-  // },
 });
 
 // prizes modal
@@ -84,31 +85,160 @@ jQuery(".js-modal-close").on("click", function (e) {
 });
 
 // spotsセクションのループスライド
-// スライドの横幅をwidthで調整 + ループ
-const swiperLoop = new Swiper(".js-swiper-width-loop", {
-  width: 240, // スライドの横幅
-  height: 402.16,
-  spaceBetween: 16,
-  loop: true, // ループモードを有効にする
+// 先頭に表示するスライドのインデックス(スライドの位置）を、
+// 画面幅に応じて切り替える（画面幅768px以上なら0番目を先頭に、768px未満なら3番目を先頭に表示する）
+function getInitialIndex() {
+  return window.innerWidth >= 768 ? 0 : 3;
+}
 
-  // ブレイクポイント
+const swiperLoop = new Swiper(".js-swiper-spots", {
+  slidesPerView: "auto",
+  centeredSlides: true,
+  loop: true,
+  spaceBetween: 16,
+
   breakpoints: {
     768: {
-      width: 344,
-
+      centeredSlides: false,
       spaceBetween: 32,
     },
   },
 
-  // 仮想スライド
-  virtual: {
-    enabled: true, // 仮想スライドを有効にする
-    addSlidesAfter: 7, // 追加するスライド数
+  // 先頭に表示するスライドのインデックスを、
+  // 画面幅に応じて切り替える（画面幅768px以上なら0、768px未満なら3を表示する）
+  on: {
+    init() {
+      this.slideToLoop(getInitialIndex(), 0, false);
+    },
+    breakpoint() {
+      this.slideToLoop(getInitialIndex(), 0, false);
+    },
   },
-
-  // ナビゲーション
+  // Navigation arrows
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: "#js-swiper-button-next",
+    prevEl: "#js-swiper-button-prev",
   },
+});
+
+// FAQセクションのアコーディオン
+// .js-accordionがクリックされたら処理を実行
+jQuery(".js-accordion").on("click", function (e) {
+  // ブラウザのデフォルトの動作をキャンセル
+  e.preventDefault();
+
+  if (jQuery(this).parent().hasClass("is-open")) {
+    // クリックされた要素がis-openクラスを持っている場合
+    // is-openクラスを削除
+    jQuery(this).parent().removeClass("is-open");
+    jQuery(this).next().slideUp();
+  } else {
+    // クリックされた要素がis-openクラスを持っていない場合
+    // is-openクラスを追加
+    jQuery(this).parent().addClass("is-open");
+    jQuery(this).next().slideDown();
+  }
+});
+
+// contactセクションの「お問い合わせ内容」がクリックされた時に
+// セレクトボックスの矢印を回転させる
+// .form-field__item-select を全て取得
+document.querySelectorAll(".form-field__item-select").forEach(function (box) {
+  // box 内の select を取得
+  const select = box.querySelector("select");
+
+  let isOpen = false;
+
+  // セレクトをクリック
+  select.addEventListener("mousedown", function () {
+    if (isOpen) {
+      // 開いている状態でクリック → 閉じる
+      box.classList.remove("is-open");
+      isOpen = false;
+    } else {
+      // 閉じている状態でクリック → 開く
+      box.classList.add("is-open");
+      isOpen = true;
+    }
+  });
+
+  // 項目を選択
+  select.addEventListener("change", function () {
+    box.classList.remove("is-open");
+    isOpen = false;
+  });
+
+  // 外クリックなどでフォーカスが外れた時
+  select.addEventListener("blur", function () {
+    box.classList.remove("is-open");
+    isOpen = false;
+  });
+});
+
+// form送信が項目未入力エラーで失敗したとき、エラー時SCSSを適用するために、was-validatedクラスを追加する
+// (.was-validated + input:invalid この二つの条件でエラー時スタイルを適用している)
+// form送信が成功した場合にアラートを表示する。
+const contactForm = document.querySelector(".contact__form");
+
+// invalidイベント required属性（入力必須項目）が、
+// 未入力エラーとなったときに発火するイベント
+contactForm.addEventListener(
+  "invalid",
+  function () {
+    contactForm.classList.add("was-validated");
+  },
+  true,
+);
+
+contactForm.addEventListener("submit", function () {
+  // フォーム全体のバリデーション結果をチェック
+  if (contactForm.checkValidity()) {
+    alert("お問い合わせ内容を送信しました。");
+  }
+});
+
+// topへ戻るボタンの表示・非表示
+// jQueryの場合の記述
+jQuery(window).on("scroll", function () {
+  // ウィンドウの一番上から300px以上スクロールしたら、#js-pagetopにis-showクラスを付与
+  if (300 < jQuery(window).scrollTop()) {
+    jQuery("#js-pagetop").addClass("is-show");
+  } else {
+    // スクロールがウィンドウの一番上から300px未満のときは、#js-pagetopからis-showクラスを削除
+    jQuery("#js-pagetop").removeClass("is-show");
+  }
+});
+
+// スムーススクロール
+jQuery('a[href^="#"]').on("click", function (e) {
+  e.preventDefault();
+
+  const speed = 500;
+  const id = jQuery(this).attr("href");
+  const target = jQuery(id === "#" ? "html" : id);
+
+  if (!target.length) return;
+
+  const headerHeight = jQuery(".header").outerHeight() || 0;
+
+  let extraOffset = 0;
+
+  // 疑似要素があるセクションだけ
+  if (target.hasClass("js-scroll-adjust")) {
+    if (window.innerWidth >= 768) {
+      extraOffset = 130; // PC
+    } else {
+      extraOffset = 80; // SP
+    }
+  }
+
+  const position = target.offset().top - headerHeight - extraOffset;
+
+  jQuery("html, body").animate(
+    {
+      scrollTop: position,
+    },
+    speed,
+    "swing",
+  );
 });
