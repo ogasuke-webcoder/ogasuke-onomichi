@@ -3780,7 +3780,7 @@ body {
     max-width: 628px;
     font-size: 16px;
   }
-
+  // バリデーションエラーで発火するスタイル
   .contact__form.was-validated & input:invalid,
   .contact__form.was-validated & textarea:invalid,
   .contact__form.was-validated & select:invalid {
