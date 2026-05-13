@@ -2820,11 +2820,12 @@ body {
   // モーダルと背景が連鎖スクロールするのを防ぐ
   overscroll-behavior-y: none;
 
-  width: 100%;
+  // width: 100%;
   max-width: 336px;
-  height: 480px;
+  aspect-ratio: 336 / 480;
 
   padding: 0 0 23px 0;
+  // padding: 0;
   border-radius: 24px;
   overflow: hidden;
 
@@ -2832,7 +2833,7 @@ body {
   border: none;
   @include mq(md) {
     max-width: 480px;
-    height: 650px;
+    aspect-ratio: 480 / 650;
     padding: 0 0 54px 0;
   }
 
@@ -2856,21 +2857,28 @@ body {
 }
 
 .prizes-modal__image {
-  width: inherit;
+  aspect-ratio: 336 / 210;
+  @include mq(md) {
+    aspect-ratio: 480 / 300;
+  }
   img {
     width: 100%;
   }
 }
 
 .prizes-modal__body {
-  margin-top: 39px;
-  padding-inline: 20px;
+  margin-top: clamp(20px, 9.5%, 39px);
+  width: 100%;
+  max-width: calc(336px - 10px * 2);
+  padding-inline: 10px;
+  margin-inline: auto;
 
   font-family: $font-family-ns-jp;
   text-align: center;
   @include mq(md) {
-    margin-top: 32px;
-    padding-inline: 40px;
+    margin-top: clamp(20px, 6.7%, 32px);
+    max-width: calc(480px - 15px * 2);
+    padding-inline: 15px;
   }
 }
 
@@ -2897,11 +2905,13 @@ body {
 
 .prizes-modal__button {
   margin-top: 16px;
+  // margin-bottom: 23px;
   margin-inline: auto;
   display: block;
   width: fit-content;
   @include mq(md) {
     margin-top: 24px;
+    // margin-bottom: 54px;
   }
 }
 

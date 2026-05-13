@@ -3140,9 +3140,8 @@ body.is-modal-open {
   z-index: 1000;
   overflow: auto;
   overscroll-behavior-y: none;
-  width: 100%;
   max-width: 336px;
-  height: 480px;
+  aspect-ratio: 336/480;
   padding: 0 0 23px 0;
   border-radius: 24px;
   overflow: hidden;
@@ -3152,7 +3151,7 @@ body.is-modal-open {
 @media screen and (min-width: 768px) {
   .prizes-modal {
     max-width: 480px;
-    height: 650px;
+    aspect-ratio: 480/650;
     padding: 0 0 54px 0;
   }
 }
@@ -3181,22 +3180,31 @@ body.is-modal-open {
 }
 
 .prizes-modal__image {
-  width: inherit;
+  aspect-ratio: 336/210;
+}
+@media screen and (min-width: 768px) {
+  .prizes-modal__image {
+    aspect-ratio: 480/300;
+  }
 }
 .prizes-modal__image img {
   width: 100%;
 }
 
 .prizes-modal__body {
-  margin-top: 39px;
-  padding-inline: 20px;
+  margin-top: clamp(20px, 9.5%, 39px);
+  width: 100%;
+  max-width: 316px;
+  padding-inline: 10px;
+  margin-inline: auto;
   font-family: "Noto Sans JP", sans-serif;
   text-align: center;
 }
 @media screen and (min-width: 768px) {
   .prizes-modal__body {
-    margin-top: 32px;
-    padding-inline: 40px;
+    margin-top: clamp(20px, 6.7%, 32px);
+    max-width: 450px;
+    padding-inline: 15px;
   }
 }
 
