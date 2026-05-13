@@ -2099,6 +2099,8 @@ body.is-modal-open {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  position: relative;
+  z-index: 10;
 }
 @media screen and (min-width: 1024px) {
   .hte-cards {
@@ -2111,7 +2113,6 @@ body.is-modal-open {
         -ms-flex-direction: row;
             flex-direction: row;
     gap: 32px;
-    position: relative;
   }
 }
 
