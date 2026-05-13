@@ -1219,7 +1219,7 @@ body {
   height: calc(1017px + 32px + 32.8px);
   margin-inline: auto;
   z-index: 5;
-  overflow: hidden !important;
+  // overflow: hidden !important;
   @include mq(md) {
     padding-top: 79px;
     padding-bottom: 80px;
@@ -1683,7 +1683,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
-  width: 100%;
+  width: 100vw;
   @include mq(md) {
     bottom: 0;
   }
