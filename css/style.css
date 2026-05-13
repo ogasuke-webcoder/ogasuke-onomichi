@@ -4067,6 +4067,11 @@ body.is-modal-open {
   padding-top: 1px;
   padding-inline: 3px;
 }
+@media screen and (min-width: 768px) {
+  .info__lists {
+    padding-top: 2px;
+  }
+}
 
 .info__list-item {
   display: -webkit-box;
@@ -4086,8 +4091,17 @@ body.is-modal-open {
   .info__list-item {
     font-size: 16px;
     letter-spacing: 0.001em;
-    gap: 4px;
-    line-height: 1.62;
+    gap: 5px;
+    line-height: 1.6;
+  }
+}
+
+.info__list-item + .info__list-item {
+  margin-top: 0.2px;
+}
+@media screen and (min-width: 768px) {
+  .info__list-item + .info__list-item {
+    margin-top: 0.5px;
   }
 }
 

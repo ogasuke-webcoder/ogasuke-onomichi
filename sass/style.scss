@@ -3604,6 +3604,9 @@ body {
 .info__lists {
   padding-top: 1px;
   padding-inline: 3px;
+  @include mq(md) {
+    padding-top: 2px;
+  }
 }
 
 .info__list-item {
@@ -3618,10 +3621,18 @@ body {
   @include mq(md) {
     font-size: 16px;
     letter-spacing: 0.001em;
-    gap: 4px;
-    line-height: 1.62;
+    gap: 5px;
+    line-height: 1.6;
   }
 }
+
+.info__list-item + .info__list-item {
+  margin-top: 0.2px;
+  @include mq(md) {
+    margin-top: 0.5px;
+  }
+}
+
 .info__list-item-bullet {
   font-weight: bold;
   font-size: 12px;
