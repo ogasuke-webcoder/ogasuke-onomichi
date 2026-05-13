@@ -198,6 +198,7 @@
   text-decoration-thickness: auto;
   text-underline-offset: auto;
   text-underline-position: from-font;
+  cursor: pointer;
   -webkit-transition: color 0.3s ease, text-decoration-color 0.3s ease;
   transition: color 0.3s ease, text-decoration-color 0.3s ease;
 }
