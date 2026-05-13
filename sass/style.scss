@@ -1208,7 +1208,7 @@ body {
 }
 
 .about {
-  margin-inline: auto;
+  // margin-inline: auto;
   padding-top: 32px;
   padding-bottom: 32.8px;
   position: relative;
@@ -1219,11 +1219,11 @@ body {
   height: calc(1017px + 32px + 32.8px);
   margin-inline: auto;
   z-index: 5;
-  // overflow: hidden !important;
+  overflow: hidden !important;
   @include mq(md) {
     padding-top: 79px;
     padding-bottom: 80px;
-    max-width: 2180px;
+    max-width: 100vw;
     height: calc(1207px + 80px + 80px);
   }
 }
