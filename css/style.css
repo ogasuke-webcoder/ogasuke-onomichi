@@ -4789,7 +4789,6 @@ body.is-modal-open {
 }
 @media screen and (min-width: 768px) {
   .footer-info {
-    margin-top: -1px;
     padding-top: 0;
     padding-bottom: 0;
     padding-inline: 30px;
@@ -4803,7 +4802,7 @@ body.is-modal-open {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-    gap: 24px;
+    gap: 25px;
   }
 }
 
