@@ -2727,7 +2727,7 @@ body.is-modal-open {
 @media screen and (min-width: 768px) {
   .prizes-contents-wrapper {
     margin-top: 58px;
-    gap: 57px;
+    gap: 56px;
   }
 }
 
@@ -3128,7 +3128,7 @@ body.is-modal-open {
 }
 @media screen and (min-width: 768px) {
   .prizes-button {
-    margin-top: 40px;
+    margin-top: 41px;
     font-size: 20px;
   }
 }
@@ -3138,11 +3138,14 @@ body.is-modal-open {
   inset: 0;
   margin: auto;
   z-index: 1000;
-  overflow: auto;
+  overflow: hidden;
   overscroll-behavior-y: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
   max-width: 336px;
-  aspect-ratio: 336/480;
-  padding: 0 0 23px 0;
+  height: 480px;
+  padding: 0 0 0 0;
   border-radius: 24px;
   overflow: hidden;
   background: #fff;
@@ -3151,8 +3154,7 @@ body.is-modal-open {
 @media screen and (min-width: 768px) {
   .prizes-modal {
     max-width: 480px;
-    aspect-ratio: 480/650;
-    padding: 0 0 54px 0;
+    height: 650px;
   }
 }
 .prizes-modal {
@@ -3179,32 +3181,64 @@ body.is-modal-open {
           transform: translateY(0) scale(1);
 }
 
-.prizes-modal__image {
-  aspect-ratio: 336/210;
+.prizes-modal__frame {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-@media screen and (min-width: 768px) {
-  .prizes-modal__image {
-    aspect-ratio: 480/300;
-  }
+.prizes-modal__frame::-webkit-scrollbar {
+  display: none;
+}
+
+.prizes-modal__image {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 100%;
+  height: auto;
 }
 .prizes-modal__image img {
   width: 100%;
+  display: block;
+  aspect-ratio: 336/210;
+}
+@media screen and (min-width: 768px) {
+  .prizes-modal__image img {
+    aspect-ratio: 480/300;
+  }
 }
 
 .prizes-modal__body {
-  margin-top: clamp(20px, 9.5%, 39px);
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-top: 39px;
   width: 100%;
   max-width: 316px;
   padding-inline: 10px;
+  padding-bottom: 23px;
   margin-inline: auto;
   font-family: "Noto Sans JP", sans-serif;
   text-align: center;
 }
 @media screen and (min-width: 768px) {
   .prizes-modal__body {
-    margin-top: clamp(20px, 6.7%, 32px);
-    max-width: 450px;
-    padding-inline: 15px;
+    margin-top: 32px;
+    max-width: 440px;
+    padding-inline: 20px;
   }
 }
 
@@ -4141,7 +4175,7 @@ body.is-modal-open {
 }
 @media screen and (min-width: 768px) {
   .entry-bg {
-    margin-top: 120px;
+    margin-top: 121px;
     aspect-ratio: 1512/400;
   }
 }
@@ -4159,7 +4193,7 @@ body.is-modal-open {
 }
 
 .contact__description {
-  margin-top: 24px;
+  margin-top: 23px;
   text-align: center;
   color: #4a3636;
   font-family: "Noto Sans JP", sans-serif;
@@ -4169,7 +4203,7 @@ body.is-modal-open {
 }
 @media screen and (min-width: 768px) {
   .contact__description {
-    margin-top: 32px;
+    margin-top: 33px;
     font-size: 16px;
   }
 }
@@ -4179,7 +4213,7 @@ body.is-modal-open {
 }
 @media screen and (min-width: 768px) {
   .contact__form {
-    margin-top: 39px;
+    margin-top: 40px;
     width: 100%;
     max-width: 848px;
     margin-inline: auto;
@@ -4194,9 +4228,8 @@ body.is-modal-open {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   gap: 24px;
 }
 @media screen and (min-width: 768px) {
@@ -4262,6 +4295,12 @@ body.is-modal-open {
           align-items: center;
   gap: 12px;
 }
+@media screen and (min-width: 768px) {
+  .form-field__head {
+    margin-bottom: 2px;
+  }
+}
+
 .form-field__label {
   color: #4a3636;
   font-family: "Noto Sans JP", sans-serif;
@@ -4310,11 +4349,24 @@ body.is-modal-open {
 .form-field__item [type=email],
 .form-field__item textarea {
   border: none;
-  padding: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-inline: 16px;
   border-radius: 8px;
   background: #f5f5f5;
   width: 100%;
   min-height: 56px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+@media screen and (min-width: 768px) {
+  .form-field__item [type=text],
+  .form-field__item [type=email],
+  .form-field__item textarea {
+    font-size: 16px;
+  }
 }
 .form-field__item [type=text]::-webkit-input-placeholder, .form-field__item [type=email]::-webkit-input-placeholder, .form-field__item textarea::-webkit-input-placeholder {
   color: #ccc;
@@ -4556,7 +4608,7 @@ body.is-modal-open {
 }
 @media screen and (min-width: 768px) {
   .form-button {
-    margin-top: 42px;
+    margin-top: 40px;
     max-width: 240px;
     height: 40px;
     font-size: 16px;
@@ -4566,12 +4618,12 @@ body.is-modal-open {
 }
 
 .footer {
-  padding-top: 41px;
+  padding-top: 40px;
   background: #e9f6f8;
 }
 @media screen and (min-width: 768px) {
   .footer {
-    padding-top: 118px;
+    padding-top: 119px;
   }
 }
 
@@ -4774,7 +4826,7 @@ body.is-modal-open {
 }
 
 .footer-info {
-  padding-block: 0 24px;
+  padding-block: 1px 24px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4790,7 +4842,7 @@ body.is-modal-open {
 @media screen and (min-width: 768px) {
   .footer-info {
     padding-top: 0;
-    padding-bottom: 0;
+    padding-bottom: 2px;
     padding-inline: 30px;
     margin-inline: auto;
     width: 50%;
@@ -4802,7 +4854,7 @@ body.is-modal-open {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-    gap: 25px;
+    gap: 24px;
   }
 }
 
@@ -4946,7 +4998,7 @@ body.is-modal-open {
   height: 45.714px;
   position: absolute;
   z-index: 0;
-  top: -35.714px;
+  top: -34.714px;
   background-image: url(../img/spots-bg-wave-top.svg);
   background-repeat: repeat-x;
   background-position: calc(50% - 48px - 2px) top;

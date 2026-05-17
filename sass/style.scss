@@ -2428,7 +2428,7 @@ body {
   gap: 15px;
   @include mq(md) {
     margin-top: 58px;
-    gap: 57px;
+    gap: 56px;
   }
 }
 
@@ -2805,7 +2805,7 @@ body {
   );
   white-space: nowrap;
   @include mq(md) {
-    margin-top: 40px;
+    margin-top: 41px;
     font-size: 20px;
   }
 }
@@ -2816,25 +2816,21 @@ body {
   inset: 0;
   margin: auto;
   z-index: 1000;
-  overflow: auto;
+  overflow: hidden;
   // モーダルと背景が連鎖スクロールするのを防ぐ
   overscroll-behavior-y: none;
-
-  // width: 100%;
+  box-sizing: border-box;
+  width: 100%;
   max-width: 336px;
-  aspect-ratio: 336 / 480;
-
-  padding: 0 0 23px 0;
-  // padding: 0;
+  height: 480px;
+  padding: 0 0 0 0;
   border-radius: 24px;
   overflow: hidden;
-
   background: #fff;
   border: none;
   @include mq(md) {
     max-width: 480px;
-    aspect-ratio: 480 / 650;
-    padding: 0 0 54px 0;
+    height: 650px;
   }
 
   // モーダル表示時のスタイル（初期状態）
@@ -2856,29 +2852,52 @@ body {
   transform: translateY(0) scale(1);
 }
 
-.prizes-modal__image {
-  aspect-ratio: 336 / 210;
-  @include mq(md) {
-    aspect-ratio: 480 / 300;
+.prizes-modal__frame {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+
+  // 以下は全て、スクロールバーをあらゆるブラウザで非表示にするためのスタイル群
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
+}
+
+.prizes-modal__image {
+  flex-shrink: 0;
+  width: 100%;
+  height: auto;
   img {
     width: 100%;
+    display: block;
+    aspect-ratio: 336 / 210;
+    @include mq(md) {
+      aspect-ratio: 480 / 300;
+    }
   }
 }
 
 .prizes-modal__body {
-  margin-top: clamp(20px, 9.5%, 39px);
+  flex: 1;
+  margin-top: 39px;
   width: 100%;
   max-width: calc(336px - 10px * 2);
   padding-inline: 10px;
+  padding-bottom: 23px;
   margin-inline: auto;
-
   font-family: $font-family-ns-jp;
   text-align: center;
   @include mq(md) {
-    margin-top: clamp(20px, 6.7%, 32px);
-    max-width: calc(480px - 15px * 2);
-    padding-inline: 15px;
+    margin-top: 32px;
+    max-width: calc(480px - 20px * 2);
+    padding-inline: 20px;
   }
 }
 
@@ -2905,13 +2924,11 @@ body {
 
 .prizes-modal__button {
   margin-top: 16px;
-  // margin-bottom: 23px;
   margin-inline: auto;
   display: block;
   width: fit-content;
   @include mq(md) {
     margin-top: 24px;
-    // margin-bottom: 54px;
   }
 }
 
@@ -3669,7 +3686,7 @@ body {
   width: 100%;
   aspect-ratio: 375 / 99;
   @include mq(md) {
-    margin-top: 120px;
+    margin-top: 121px;
     aspect-ratio: 1512 / 400;
   }
 }
@@ -3692,7 +3709,7 @@ body {
 }
 
 .contact__description {
-  margin-top: 24px;
+  margin-top: 23px;
   text-align: center;
   color: $color-font-blown;
 
@@ -3701,7 +3718,7 @@ body {
   font-weight: 400;
   line-height: 1.6;
   @include mq(md) {
-    margin-top: 32px;
+    margin-top: 33px;
     font-size: 16px;
   }
 }
@@ -3709,7 +3726,7 @@ body {
 .contact__form {
   margin-top: 23px;
   @include mq(md) {
-    margin-top: 39px;
+    margin-top: 40px;
     width: 100%;
     max-width: 848px;
     margin-inline: auto;
@@ -3719,7 +3736,7 @@ body {
 .contact__fields {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-around;
   gap: 24px;
   @include mq(md) {
     gap: 23px;
@@ -3764,6 +3781,7 @@ body {
   align-items: center;
   gap: 12px;
   @include mq(md) {
+    margin-bottom: 2px;
   }
 }
 
@@ -3815,11 +3833,20 @@ body {
   [type="email"],
   textarea {
     border: none;
-    padding: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-inline: 16px;
     border-radius: 8px;
     background: $monochrome-gray;
     width: 100%;
     min-height: 56px;
+    font-family: $font-family-ns-jp;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    @include mq(md) {
+      font-size: 16px;
+    }
     &::placeholder {
       color: $monochrome-dgray;
     }
@@ -4057,7 +4084,7 @@ body {
   margin-top: 26px;
   margin-inline: auto;
   @include mq(md) {
-    margin-top: 42px;
+    margin-top: 40px;
     max-width: 240px;
     height: 40px;
     font-size: 16px;
@@ -4068,10 +4095,10 @@ body {
 
 // footer
 .footer {
-  padding-top: 41px;
+  padding-top: 40px;
   background: $sub-color-lblue;
   @include mq(md) {
-    padding-top: 118px;
+    padding-top: 119px;
   }
 }
 
@@ -4247,14 +4274,14 @@ body {
 }
 
 .footer-info {
-  padding-block: 0 24px;
+  padding-block: 1px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 23px;
   @include mq(md) {
     padding-top: 0;
-    padding-bottom: 0;
+    padding-bottom: 2px;
     padding-inline: 30px;
     margin-inline: auto;
     width: 50%;
@@ -4262,7 +4289,7 @@ body {
     height: 100%;
     justify-content: center;
     align-items: flex-start;
-    gap: 25px;
+    gap: 24px;
   }
 }
 
@@ -4369,7 +4396,7 @@ body {
     height: 45.714px;
     position: absolute;
     z-index: 0;
-    top: calc(-45.714px + 10px);
+    top: calc(-45.714px + 11px);
 
     background-image: url(../img/spots-bg-wave-top.svg);
     background-repeat: repeat-x;
