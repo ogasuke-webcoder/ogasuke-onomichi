@@ -4213,7 +4213,7 @@ body.is-modal-open {
 }
 @media screen and (min-width: 768px) {
   .contact__form {
-    margin-top: 40px;
+    margin-top: 39px;
     width: 100%;
     max-width: 848px;
     margin-inline: auto;
@@ -4536,7 +4536,7 @@ body.is-modal-open {
 }
 @media screen and (min-width: 768px) {
   .form-checkbox {
-    margin-top: 40px;
+    margin-top: 41px;
   }
 }
 
@@ -4623,7 +4623,7 @@ body.is-modal-open {
 }
 @media screen and (min-width: 768px) {
   .footer {
-    padding-top: 119px;
+    padding-top: 120px;
   }
 }
 
@@ -4842,7 +4842,7 @@ body.is-modal-open {
 @media screen and (min-width: 768px) {
   .footer-info {
     padding-top: 0;
-    padding-bottom: 2px;
+    padding-bottom: 4px;
     padding-inline: 30px;
     margin-inline: auto;
     width: 50%;
@@ -4975,7 +4975,7 @@ body.is-modal-open {
 }
 
 .footer-bottom {
-  margin-top: 161.71px;
+  margin-top: 160.71px;
   padding-top: 8px;
   text-align: center;
   position: relative;
@@ -5007,7 +5007,7 @@ body.is-modal-open {
 @media screen and (min-width: 768px) {
   .footer-bottom::before {
     height: 120px;
-    top: -108px;
+    top: -109px;
     background-image: url(../img/spots-bg-wave-top-pc.svg);
     background-position: calc(50% - 126px - 3px) top;
   }

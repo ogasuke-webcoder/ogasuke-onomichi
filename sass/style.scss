@@ -3726,7 +3726,7 @@ body {
 .contact__form {
   margin-top: 23px;
   @include mq(md) {
-    margin-top: 40px;
+    margin-top: 39px;
     width: 100%;
     max-width: 848px;
     margin-inline: auto;
@@ -4004,7 +4004,7 @@ body {
   margin-inline: auto;
   width: fit-content;
   @include mq(md) {
-    margin-top: 40px;
+    margin-top: 41px;
   }
 }
 
@@ -4098,7 +4098,7 @@ body {
   padding-top: 40px;
   background: $sub-color-lblue;
   @include mq(md) {
-    padding-top: 119px;
+    padding-top: 120px;
   }
 }
 
@@ -4281,7 +4281,7 @@ body {
   gap: 23px;
   @include mq(md) {
     padding-top: 0;
-    padding-bottom: 2px;
+    padding-bottom: 4px;
     padding-inline: 30px;
     margin-inline: auto;
     width: 50%;
@@ -4375,7 +4375,7 @@ body {
   }
 }
 .footer-bottom {
-  margin-top: 161.71px;
+  margin-top: 160.71px;
   padding-top: 8px;
   text-align: center;
   position: relative;
@@ -4405,7 +4405,7 @@ body {
 
     @include mq(md) {
       height: 120px;
-      top: calc(-120px + 12px);
+      top: calc(-120px + 11px);
       background-image: url(../img/spots-bg-wave-top-pc.svg);
       background-position: calc(50% - 252px / 2 - 3px) top;
     }
