@@ -23,6 +23,12 @@
     display: none;
   }
 }
+a:focus {
+  outline: 2px solid var(--LP-Blue, #9ed0e0);
+  outline-offset: -2px;
+  border-radius: 5px;
+}
+
 .inner {
   padding-inline: 20px;
   margin-inline: auto;
@@ -173,9 +179,10 @@
 .button:hover {
   background: #ffee56;
 }
-.button:focus, .button:focus-visible {
+.button:focus-visible {
   outline: none;
   background: #ffee56;
+  border-radius: 40px;
 }
 
 .button-md {
@@ -2991,6 +2998,19 @@ body.is-modal-open {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
 }
+.prizes-card:focus {
+  outline: none;
+}
+.prizes-card:focus::after {
+  opacity: 1;
+}
+.prizes-card:focus .prizes-card__zoom-btn {
+  background: #9ed0e0;
+}
+.prizes-card:focus .prizes-card__image img {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
 @media screen and (min-width: 768px) {
   .prizes-card {
     max-width: 440px;
@@ -4420,7 +4440,7 @@ body.is-modal-open {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  width: 51px;
+  width: 52px;
   height: 100%;
   background: #9ed0e0;
   border-radius: 0 8px 8px 0;
@@ -4455,7 +4475,9 @@ body.is-modal-open {
   display: none;
 }
 .form-field__item-select select:focus {
-  outline: none;
+  outline: 1px solid var(--LP-Blue, #9ed0e0);
+  outline-offset: -1px;
+  background: var(--LP-Light-Blue, #e9f6f8);
 }
 .contact__form.was-validated .form-field__item-select select:invalid + .select-icon-box {
   background: #ce2073;

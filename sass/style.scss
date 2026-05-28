@@ -72,6 +72,14 @@ $pc-contents: 1024px;
   }
 }
 
+a {
+  &:focus {
+    outline: 2px solid var(--LP-Blue, #9ed0e0);
+    outline-offset: -2px;
+    border-radius: 5px;
+  }
+}
+
 // 共通インナー
 .inner {
   padding-inline: 20px;
@@ -186,10 +194,10 @@ $pc-contents: 1024px;
   &:hover {
     background: $accent-color-yellow;
   }
-  &:focus,
   &:focus-visible {
     outline: none;
     background: $accent-color-yellow;
+    border-radius: 40px;
   }
 }
 
@@ -2683,6 +2691,22 @@ body {
       }
     }
   }
+  &:focus {
+    // ↓元々のbuttonタグのoutlineを消す(最初に作った時にdivタグで実装し、後からbuttonタグに修正したため)
+    outline: none;
+    &::after {
+      opacity: 1;
+    }
+    .prizes-card__zoom-btn {
+      background: #9ed0e0;
+    }
+
+    .prizes-card__image {
+      img {
+        transform: scale(1.2);
+      }
+    }
+  }
 
   @include mq(md) {
     max-width: 440px;
@@ -3877,7 +3901,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
-    width: 51px;
+    width: 52px;
     height: 100%;
     background: $main-color-blue;
     border-radius: 0 8px 8px 0;
@@ -3915,7 +3939,9 @@ body {
     }
 
     &:focus {
-      outline: none;
+      outline: 1px solid var(--LP-Blue, #9ed0e0);
+      outline-offset: -1px;
+      background: var(--LP-Light-Blue, #e9f6f8);
     }
     .contact__form.was-validated &:invalid + .select-icon-box {
       background: $accent-color-red;
