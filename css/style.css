@@ -467,6 +467,7 @@ body.is-modal-open {
   color: #4a3636;
   font-size: 14px;
   font-weight: 400;
+  line-height: 1.58;
   padding-block: 6px;
   -webkit-transition: color 0.3s ease, text-decoration-color 0.3s ease;
   transition: color 0.3s ease, text-decoration-color 0.3s ease;
