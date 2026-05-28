@@ -233,13 +233,13 @@ body.is-modal-open {
 }
 
 .header {
-  padding-top: 15.5px;
+  padding-top: 16px;
   padding-bottom: 16px;
   position: sticky;
   z-index: 1000;
   top: 0;
   width: 100%;
-  height: 63.5px;
+  height: 64px;
   background: #fff;
 }
 
@@ -318,7 +318,8 @@ body.is-modal-open {
   white-space: nowrap;
   font-size: clamp(11px, 11px + (100vw - 768px) * 0.0625, 12px);
   font-weight: 400;
-  padding-block: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   -webkit-transition: color 0.3s ease, text-decoration-color 0.3s ease;
   transition: color 0.3s ease, text-decoration-color 0.3s ease;
 }
@@ -491,18 +492,18 @@ body.is-modal-open {
 
 .fv {
   border-radius: 0 0 24px 24px;
-  background: url(../img/sp-fv-onomichi-022.jpg) no-repeat top center/cover;
+  background: url(../img/sp-fv-onomichi-022-optimized.jpg) no-repeat top center/cover;
   background-color: rgba(211, 211, 211, 0.5);
   height: 554px;
   padding-top: 19px;
-  margin-bottom: 156px;
+  margin-bottom: 155px;
 }
 @media screen and (min-width: 768px) {
   .fv {
     padding-top: 34px;
-    margin-bottom: 97px;
+    margin-bottom: 96px;
     border-radius: 0 0 40px 40px;
-    background: url(../img/pc-fv-onomichi-022.jpg) no-repeat top center/cover;
+    background: url(../img/pc-fv-onomichi-022-optimized.jpg) no-repeat top center/cover;
     height: 740px;
   }
 }
@@ -2112,7 +2113,7 @@ body.is-modal-open {
 }
 @media screen and (min-width: 1024px) {
   .hte-cards {
-    margin-top: 40px;
+    margin-top: 41px;
     margin-inline: auto;
     max-width: 1024px;
     height: 562px;
@@ -3800,7 +3801,7 @@ body.is-modal-open {
 }
 
 .qa {
-  padding-top: 30px;
+  padding-top: 31px;
   padding-bottom: 28.67px;
 }
 @media screen and (min-width: 768px) {
@@ -4004,12 +4005,12 @@ body.is-modal-open {
   border: 8px solid #fff;
   background: rgba(255, 255, 255, 0.5);
   padding-top: 14px;
-  padding-bottom: 18px;
+  padding-bottom: 16px;
 }
 @media screen and (min-width: 768px) {
   .info__wrapper {
     padding-top: 30px;
-    padding-bottom: 32px;
+    padding-bottom: 33px;
   }
 }
 
@@ -4224,11 +4225,11 @@ body.is-modal-open {
 }
 
 .contact__form {
-  margin-top: 23px;
+  margin-top: 24px;
 }
 @media screen and (min-width: 768px) {
   .contact__form {
-    margin-top: 39px;
+    margin-top: 38px;
     width: 100%;
     max-width: 848px;
     margin-inline: auto;
@@ -4781,7 +4782,6 @@ body.is-modal-open {
 }
 
 .footer-access {
-  margin-top: -3px;
   margin-inline: auto;
   width: 100%;
   max-width: 1024px;
@@ -4798,7 +4798,7 @@ body.is-modal-open {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 21px;
+  gap: 18px;
   position: relative;
   z-index: 100;
 }
