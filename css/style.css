@@ -4229,7 +4229,7 @@ body.is-modal-open {
 }
 @media screen and (min-width: 768px) {
   .contact__form {
-    margin-top: 38px;
+    margin-top: 39px;
     width: 100%;
     max-width: 848px;
     margin-inline: auto;
@@ -4859,7 +4859,7 @@ body.is-modal-open {
 @media screen and (min-width: 768px) {
   .footer-info {
     padding-top: 0;
-    padding-bottom: 4px;
+    padding-bottom: 5px;
     padding-inline: 30px;
     margin-inline: auto;
     width: 50%;
@@ -5004,7 +5004,7 @@ body.is-modal-open {
 @media screen and (min-width: 768px) {
   .footer-bottom {
     margin-top: 228px;
-    padding-top: 10px;
+    padding-top: 9px;
     height: 68px;
   }
 }
