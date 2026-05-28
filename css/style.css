@@ -4131,12 +4131,6 @@ body.is-modal-open {
   padding-top: 1px;
   padding-inline: 3px;
 }
-@media screen and (min-width: 768px) {
-  .info__lists {
-    padding-top: 2px;
-  }
-}
-
 .info__list-item {
   display: -webkit-box;
   display: -ms-flexbox;
