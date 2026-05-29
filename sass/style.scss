@@ -175,7 +175,7 @@ a {
   color: $color-font-blown;
   font-weight: 700;
   line-height: 1.6;
-
+  cursor: pointer;
   font-size: 16px;
   padding: calc(6px - 2px) calc(24px - 2px) calc(8px - 2px) calc(24px - 2px);
   @include mq(md) {
@@ -270,8 +270,12 @@ body {
   align-items: center;
   width: 100%;
   height: 32px;
+  padding-inline: 20px;
+  margin-inline: auto;
+
   @include mq(md) {
-    max-width: calc(1512px - 4px * 2);
+    // max-width: calc(1512px - 4px * 2);
+    padding-inline: 24px;
   }
 }
 
@@ -495,7 +499,7 @@ body {
 
 .fv {
   border-radius: 0 0 24px 24px;
-  background: url(../img/sp-fv-onomichi-022-optimized.jpg) no-repeat top
+  background: url(../img/sp-fv-onomichi-022-optimized.jpg) no-repeat bottom
     center / cover;
   background-color: rgba(lightgray, $alpha: 0.5);
   height: 554px;
@@ -505,7 +509,7 @@ body {
     padding-top: 34px;
     margin-bottom: 96px;
     border-radius: 0 0 40px 40px;
-    background: url(../img/pc-fv-onomichi-022-optimized.jpg) no-repeat top
+    background: url(../img/pc-fv-onomichi-022-optimized.jpg) no-repeat bottom
       center / cover;
     height: 740px;
   }

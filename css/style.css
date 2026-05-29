@@ -155,6 +155,7 @@ a:focus {
   color: #4a3636;
   font-weight: 700;
   line-height: 1.6;
+  cursor: pointer;
   font-size: 16px;
   padding: 4px 22px 6px 22px;
 }
@@ -259,10 +260,12 @@ body.is-modal-open {
           align-items: center;
   width: 100%;
   height: 32px;
+  padding-inline: 20px;
+  margin-inline: auto;
 }
 @media screen and (min-width: 768px) {
   .header__inner {
-    max-width: 1504px;
+    padding-inline: 24px;
   }
 }
 
@@ -492,7 +495,7 @@ body.is-modal-open {
 
 .fv {
   border-radius: 0 0 24px 24px;
-  background: url(../img/sp-fv-onomichi-022-optimized.jpg) no-repeat top center/cover;
+  background: url(../img/sp-fv-onomichi-022-optimized.jpg) no-repeat bottom center/cover;
   background-color: rgba(211, 211, 211, 0.5);
   height: 554px;
   padding-top: 19px;
@@ -503,7 +506,7 @@ body.is-modal-open {
     padding-top: 34px;
     margin-bottom: 96px;
     border-radius: 0 0 40px 40px;
-    background: url(../img/pc-fv-onomichi-022-optimized.jpg) no-repeat top center/cover;
+    background: url(../img/pc-fv-onomichi-022-optimized.jpg) no-repeat bottom center/cover;
     height: 740px;
   }
 }
