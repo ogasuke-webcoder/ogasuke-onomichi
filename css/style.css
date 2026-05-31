@@ -155,6 +155,7 @@ a:focus {
   color: #4a3636;
   font-weight: 700;
   line-height: 1.6;
+  white-space: nowrap;
   cursor: pointer;
   font-size: 16px;
   padding: 4px 22px 6px 22px;
@@ -2574,10 +2575,9 @@ body.is-modal-open {
   margin-top: -0.5px;
   margin-bottom: 20px;
   margin-inline: auto;
-  font-size: clamp(12px, 4.5vw, 16px);
-  white-space: nowrap;
   width: 100%;
-  max-width: 335px;
+  max-width: 334px;
+  font-size: clamp(13px, 13px + 4 * (100vw - 320px) / 55, 16px);
 }
 @media screen and (min-width: 768px) {
   .hte-button {
@@ -2667,15 +2667,18 @@ body.is-modal-open {
   background: #fff;
   padding-bottom: 35.67px;
   width: 100%;
+  max-width: 600px;
 }
 @media screen and (min-width: 768px) {
   .prizes-contents__body {
     padding-bottom: 52px;
+    max-width: 1024px;
   }
 }
 
 .prizes-inner {
   text-align: center;
+  padding-inline: 20px;
 }
 @media screen and (min-width: 768px) {
   .prizes-inner {
@@ -2738,7 +2741,7 @@ body.is-modal-open {
 }
 @media screen and (min-width: 768px) {
   .prizes-contents-wrapper {
-    margin-top: 58px;
+    margin-top: 57px;
     gap: 56px;
   }
 }
@@ -2754,24 +2757,7 @@ body.is-modal-open {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   gap: 15px;
-}
-@media (min-width: 550px) {
-  .prizes-content-top {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    width: 100%;
-    max-width: 510px;
-  }
-}
-@media (min-width: 550px) {
-  .prizes-content-top .prizes-card {
-    max-width: 247.5px;
-    border-radius: 16px;
-  }
 }
 @media screen and (min-width: 768px) {
   .prizes-content-top .prizes-card {
@@ -2791,21 +2777,10 @@ body.is-modal-open {
     max-width: 912px;
   }
 }
-@media (min-width: 550px) {
-  .prizes-content-top .prizes-card__image {
-    height: 200px;
-  }
-}
 @media screen and (min-width: 768px) {
   .prizes-content-top .prizes-card__image {
     height: 73.9130434783%;
     max-height: 340px;
-  }
-}
-@media (min-width: 550px) {
-  .prizes-content-top .prizes-card__star-image {
-    width: 60px;
-    height: 60px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -2814,9 +2789,10 @@ body.is-modal-open {
     height: 97px;
   }
 }
-@media (min-width: 550px) {
-  .prizes-content-top .prizes-card__rank-text {
-    font-size: 10px;
+@media screen and (min-width: 768px) {
+  .prizes-content-top .prizes-card__rank {
+    top: 0;
+    gap: 3px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -2824,20 +2800,9 @@ body.is-modal-open {
     font-size: 16px;
   }
 }
-@media (min-width: 550px) {
-  .prizes-content-top .prizes-card__rank-number {
-    font-size: 32px;
-  }
-}
 @media screen and (min-width: 768px) {
   .prizes-content-top .prizes-card__rank-number {
     font-size: 48px;
-  }
-}
-@media (min-width: 550px) {
-  .prizes-content-top .prizes-card__description {
-    height: 100px;
-    padding-block: 14px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -2846,29 +2811,9 @@ body.is-modal-open {
     padding-block: 28px;
   }
 }
-@media (min-width: 550px) {
-  .prizes-content-top .prizes-card__description-text {
-    font-size: 16px;
-  }
-}
 @media screen and (min-width: 768px) {
   .prizes-content-top .prizes-card__description-text {
     font-size: 20px;
-  }
-}
-@media (min-width: 550px) {
-  .prizes-content-top .prizes-card__zoom-btn {
-    width: 64px;
-    height: 64px;
-    border-radius: 0 0 16px 0;
-  }
-  .prizes-content-top .prizes-card__zoom-btn img {
-    width: 20.48px;
-    height: 20.48px;
-    margin-top: 34.56px;
-    margin-bottom: 8.96px;
-    margin-left: 35.52px;
-    margin-right: 8px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -2930,13 +2875,19 @@ body.is-modal-open {
   }
 }
 @media screen and (min-width: 768px) {
+  .prizes-content-bottom .prizes-card__rank {
+    top: 1px;
+    gap: 2px;
+  }
+}
+@media screen and (min-width: 768px) {
   .prizes-content-bottom .prizes-card__rank-text {
     font-size: 12.8px;
   }
 }
 @media screen and (min-width: 768px) {
   .prizes-content-bottom .prizes-card__rank-number {
-    font-size: 38.4px;
+    font-size: 38px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -2969,8 +2920,7 @@ body.is-modal-open {
 .prizes-card {
   margin-top: 24px;
   position: relative;
-  width: 100%;
-  max-width: 160px;
+  width: calc(50% - 7.5px);
   background: #f5f5f5;
   border-radius: 8px;
 }
@@ -3080,7 +3030,9 @@ body.is-modal-open {
 
 .prizes-card__image {
   width: 100%;
-  height: 140px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   overflow: hidden;
 }
 @media screen and (min-width: 768px) {
@@ -3148,13 +3100,15 @@ body.is-modal-open {
 .prizes-button {
   margin-top: 18px;
   margin-inline: auto;
-  font-size: clamp(12px, 12px + 4 * (100vw - 320px) / 55, 16px);
-  white-space: nowrap;
+  width: 100%;
+  max-width: 334px;
+  font-size: clamp(13px, 13px + 4 * (100vw - 320px) / 55, 16px);
 }
 @media screen and (min-width: 768px) {
   .prizes-button {
     margin-top: 41px;
     font-size: 20px;
+    max-width: 437px;
   }
 }
 
@@ -3711,6 +3665,7 @@ body.is-modal-open {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  padding-inline: 20px;
   gap: 16px;
   position: relative;
 }
@@ -3718,7 +3673,6 @@ body.is-modal-open {
   .spots-logo-container {
     margin-top: 32px;
     margin-inline: auto;
-    padding-inline: 20px;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -3766,12 +3720,14 @@ body.is-modal-open {
 .spots-button {
   margin-top: 24px;
   margin-inline: auto;
-  white-space: nowrap;
-  font-size: clamp(12px, 12px + 4 * (100vw - 320px) / 55, 16px);
+  width: 100%;
+  max-width: 334px;
+  font-size: clamp(13px, 13px + 4 * (100vw - 320px) / 55, 16px);
 }
 @media screen and (min-width: 768px) {
   .spots-button {
     font-size: 20px;
+    max-width: 437px;
     margin-right: 0;
   }
 }
@@ -4128,6 +4084,9 @@ body.is-modal-open {
   .info__item-text {
     font-size: 16px;
     line-height: 1.62;
+  }
+  .info__item-text span {
+    display: inline-block;
   }
 }
 
