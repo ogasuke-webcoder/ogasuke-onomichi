@@ -3159,16 +3159,20 @@ body {
     writing-mode: vertical-rl; // ← 縦書き
     text-orientation: upright; // ← 文字を正立させる
 
-    position: relative;
+    // position: relative;
+
+    display: inline-block;
   }
 
   span {
     @include mq(md) {
-      position: absolute;
-      top: 305px;
-      left: -8px;
+      // position: absolute;
+      // top: 305px;
+      // left: -8px;
       display: inline-block;
-      width: 56px;
+      transform: translateX(-5px);
+      margin-top: 4px;
+      margin-bottom: -4px;
     }
   }
 }
